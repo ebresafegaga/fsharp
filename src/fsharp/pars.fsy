@@ -3055,7 +3055,10 @@ constrPattern:
 
   | COLON_QMARK atomTypeOrAnonRecdType  %prec pat_isinst 
       { SynPat.IsInst($2, lhs parseState) }
-
+      
+  | EXCEPTION constrPattern
+      { $2 }
+  
   | atomicPattern 
       { $1 }
 
